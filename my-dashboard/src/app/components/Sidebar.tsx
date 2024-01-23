@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 import { IoLogoReact, IoCalculator,IoTimerOutline } from "react-icons/io5";
 import { SidebarMenuItem } from ".";
 
@@ -21,9 +20,9 @@ const menuItems = [
 const Sidebar = () => {
   return (
     <div
-      style={{ width: "300px" }}
+      style={{ width: "400px" }}
       id="menu"
-      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 fixed left-0 h-screen overflow-y-scroll"
+      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64  left-0 h-screen overflow-y-scroll"
     >
       <div id="logo" className="my-4 px-6">
         <h1 className="flex items-center text-lg md:text-2xl font-bold text-white">
