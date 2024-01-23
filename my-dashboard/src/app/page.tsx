@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 
 const HomePage = () => {
 
-  redirect('/dashboard/counter');
+  redirect('/dashboard/main');
 
   
 }
