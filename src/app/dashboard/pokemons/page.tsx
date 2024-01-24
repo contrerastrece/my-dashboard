@@ -5,6 +5,15 @@ interface Props{
   limit: number;
   offset: number;
 }
+
+
+export const metadata = {
+ title: '151 Pokemons',
+ description: 'Lista de los pokemons de la 1era generación',
+};
+
+
+
 const getPokemons = async (limit=20,offset=0):Promise<SimplePokemon[]> =>{
   const response= await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
   const data:PokemonsResponse=await response.json();
