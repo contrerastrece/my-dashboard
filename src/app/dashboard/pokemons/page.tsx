@@ -1,4 +1,5 @@
-import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/app/pokemons";
+
+import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
 
 interface Props{
   limit: number;
@@ -11,6 +12,8 @@ const getPokemons = async (limit=20,offset=0):Promise<SimplePokemon[]> =>{
     id:pokemon.url.split('/').at(-2)!,/*con el signo de admiración le estoy diciendo que sí vendrá un dato */
     name:pokemon.name
   }))
+
+  // throw new Error('Esto es un erro que no deberia suceder')
 
   return pokemons;
 }

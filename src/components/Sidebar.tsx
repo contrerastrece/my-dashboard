@@ -15,14 +15,14 @@ const menuItems = [
     title: "Counter",
     subTitle: "Contandor Client Side",
   },{
-    path: "/dashboard/pokemon",
+    path: "/dashboard/pokemons",
     icon: <IoCalculator size={40} />,
     title: "Pokemons",
     subTitle: "Generacion estática",
   },
 ];
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <div
       style={{ width: "400px" }}
@@ -63,4 +63,3 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
