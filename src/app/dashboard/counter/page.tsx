@@ -7,6 +7,7 @@ export const metadata = {
 };
 
 const CounterPage = () => {
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <span className="">Procucto en el Carrito</span>
