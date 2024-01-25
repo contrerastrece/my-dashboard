@@ -13,8 +13,13 @@ export const PokemonCard = ({ pokemon }: Props) => {
   const isFavorite = usePokemonStore(
     (state) => !!state.initialState[pokemon.id]
   );
-
+  const toggle = usePokemonStore((state) => state.toggleFavorite);
+  // console.log("", toggle);
   // console.log({isFavorite});
+
+  const onToggle=()=>{
+    toggle(pokemon);
+  }
 
   return (
     <div className="mx-auto right-0 mt-2 w-60">
@@ -41,10 +46,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
           </div>
         </div>
         <div className="border-b">
-          <Link
-            href="/dashboard/main"
-            className="px-4 py-2 hover:bg-gray-100 flex items-center"
-          >
+          <div className="px-4 py-2 hover:bg-gray-100 flex items-center cursor-pointer" onClick={onToggle}>
             <div className="text-red-600 ">
               {isFavorite ? <IoHeart /> : <IoHeartOutline />}
             </div>
@@ -54,7 +56,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
               </p>
               <p className="text-xs text-gray-500">Click para cambiar</p>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
     </div>
