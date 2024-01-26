@@ -9,34 +9,29 @@ interface Props {
   };
 }
 
-
-
 const getPokemon = async (id: string): Promise<Pokemon> => {
-
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    cache: "force-cache",
-  });
+      cache: "force-cache",
+    });
 
-  const data = await response.json();
-  console.log('se cargo pokemon',data.name)
+    const data = await response.json();
+    console.log("se cargo pokemon", data.name);
 
-  return data;
+    return data;
   } catch (error) {
-    notFound()
-  } 
-
-  
+    notFound();
+  }
 };
 
 // Esto solo se va ejecutar en build Time
 
 // generaremos 151 pokemons Staticos
 export async function generateStaticParams() {
- 
-  const static151Pokemons=Array.from({length:151}).map((v,i)=>`${i+1}`)
-  return static151Pokemons.map(id=>({id:id}))
-
+  const static151Pokemons = Array.from({ length: 151 }).map(
+    (v, i) => `${i + 1}`
+  );
+  return static151Pokemons.map((id) => ({ id: id }));
 }
 
 export const generateMetadata = async ({
@@ -44,19 +39,17 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const { id, name } = await getPokemon(params.id);
 
-  try{
+  try {
     return {
       title: `#${id}-${name}`,
       description: `Página del pokemon ${name}`,
     };
-
-  }catch(error){
+  } catch (error) {
     return {
-      title: 'Pagina de Pokemon',
+      title: "Pagina de Pokemon",
       description: `Página del pokemon ${name}`,
     };
   }
-
 
   return {
     title: `#${id}-${name}`,

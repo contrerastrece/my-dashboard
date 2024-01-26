@@ -1,5 +1,5 @@
 
-import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
+import {  PokemonGridFav  } from "@/pokemons";
 
 interface Props{
   limit: number;
@@ -19,7 +19,7 @@ const FavoritesPage = async() => {
   return (
     <div className="flex flex-col">
       <span className="text-4xl my-2">Pokemons Favoritos <small className="text-blue-500">Global State</small></span>
-     <PokemonGrid pokemons={[]}/>
+     <PokemonGridFav/>
     </div>
   )
 }
