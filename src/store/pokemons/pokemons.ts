@@ -4,9 +4,13 @@ import { create } from "zustand";
 interface PokemonState {
   [key: string]: SimplePokemon;
 }
+const getInitialState=():PokemonState=>{
+  const favorites=JSON.parse(localStorage.getItem('favorite')??'{}')
+  return favorites
+}
 
 const initialState: PokemonState = {
-  "1": { id: "1", name: "bulbasaur" },
+  ...getInitialState()
 };
 
 interface PokemonStore {
@@ -24,5 +28,6 @@ export const usePokemonStore = create<PokemonStore>((set, get) => ({
     isFavorite ? delete currentState[id] : (currentState[id] = { ...pokemon });
 
     set({ initialState: { ...currentState } });
+    localStorage.setItem('favorite',JSON.stringify(get().initialState))
   },
 }));
